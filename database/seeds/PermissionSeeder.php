@@ -1,16 +1,12 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Permission;
-use App\Role;
+use App\Models\Permission;
+use App\Models\Role;
 
 class PermissionSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
     public function run()
     {
         $this->createPermissions();
@@ -36,16 +32,21 @@ class PermissionSeeder extends Seeder
     {
 
         $admin = Role::firstOrCreate([
-            'name' => 'administrador_plataforma',
-            'description' => 'Administrador'
+            'name' => 'admin',
+            'description' => 'Admin'
         ]);
         $professor = Role::firstOrCreate([
             'name' => 'professor',
             'description' => 'Professor'
         ]);
+        $student = Role::firstOrCreate([
+            'name' => 'student',
+            'description' => 'Estudante'
+        ]);
         
         $admin->permissions()->sync(Permission::all());
-        $professor->permissions()->sync(Permission::where('name','relatorioprofessor_user')->first());
+        $professor->permissions()->sync(Permission::where('name','professor_report_user')->first());
+        $student->permissions()->sync(Permission::where('name','student_report_user')->first());
         $this->command->info('Full Permissions sucessfull added');
     }
 }

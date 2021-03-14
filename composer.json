@@ -17,6 +17,7 @@
         "laravel-frontend-presets/white-dashboard": "^1.0",
         "laravel/framework": "^7.24",
         "laravel/tinker": "^2.0",
+        "laravel/passport": "^8.4",
         "laravel/ui": "^2.4",
         "netojose/laravel-bootstrap-4-forms": "^3.0",
         "spatie/laravel-permission": "^3.17",

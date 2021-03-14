@@ -1,13 +1,15 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Pessoa extends Model
+class People extends Model
 {
+    protected $table = 'peoples';
+
     protected $fillable = [
-        'nome','telefone','matricula'
+        'name','phone','enrollment'
     ];
 
     public function user()

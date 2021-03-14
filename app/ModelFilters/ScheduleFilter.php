@@ -4,12 +4,12 @@ namespace App\ModelFilters;
 
 use EloquentFilter\ModelFilter;
 
-class AgendamentosFilter extends ModelFilter
+class ScheduleFilter extends ModelFilter
 {
-    public function situacao($id) {
+    public function status($id) {
         if ($id == 1) {
             return $this;
         }
-        return $this->where('situacao', $id-1);
+        return $this->where('status', $id-1);
     }
 }

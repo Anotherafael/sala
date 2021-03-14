@@ -1,13 +1,15 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Noticia extends Model
+class News extends Model
 {
+    protected $table = 'news';
+
     protected $fillable = [
-        'titulo','conteudo','user_id','imagem'
+        'title','content','user_id','image'
     ];
     
     public function scopeInfo($query){

@@ -1,16 +1,15 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MotivoUtilizacao extends Model
+class Reason extends Model
 {
-
-    protected $table = 'motivos_utilizacao';
+    protected $table = 'reason';
 
     protected $fillable = [
-        'motivo','ativo'
+        'name','active'
     ];
 
     public function scopeInfo($query){

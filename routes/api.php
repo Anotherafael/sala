@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\SessionController;
+use App\Http\Controllers\API\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,16 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-Route::group(['prefix' => 'v1'], function () {
-        Route::group(['prefix' => 'public'], function () {
-            Route::group(['prefix' => 'schedules'], function () {
-                Route::get('all/{id}', 'PublicController@getSchedules');
-            });
-            Route::group(['prefix' => 'disciplinas'], function () {
-                Route::get('all/{id}', 'PublicController@getDisciplinas');
-            });
-        });
+Route::group(['prefix' => 'v1', 'namespace' => 'API'], function () {
+    Route::group(['prefix' => 'auth'], function () {
+        Route::post('login', [SessionController::class, 'store']);
+    });
+    
+    Route::group(['prefix' => 'user'], function () {
+        Route::post('create', [UserController::class, 'store']);
+        Route::get('readall', [UserController::class, 'readAll']);
+        Route::get('readone/{id}', [UserController::class, 'readOne']);
+        Route::delete('delete/{id}', [UserController::class, 'destroy']);
+        Route::put('update/{id}', [UserController::class, 'update']);
+    });
+
+
+
 });
