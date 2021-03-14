@@ -8,6 +8,7 @@
             <a class="item-navbar" href="{{ route('confirmaragendamento.index') }}">Dashboard</a>
         @endif       
 
+        <a class="item-navbar" href="{{ route('sobre.index') }}">Sobre</a>
         <a class="item-navbar" href="{{ route('perfil.index') }}">Perfil</a>
         <div class="dropdownn">
             <button class="dropbtnn">Agendamentos
@@ -18,6 +19,9 @@
                 <a class="item-navbar" href="{{ route('selecaoambiente.index') }}">Agendar Ambiente</a>
                 @if(auth()->user()->tipo_usuario == 4)
                     <a class="item-navbar" href="{{ route('relatorio.operacional') }}">Relatório Operacional</a>
+                @endif    
+                @if(auth()->user()->tipo_usuario == 2)
+                    <a class="item-navbar" href="{{ route('relatorio.aluno') }}">Relatório Aluno</a>
                 @endif    
             </div>          
         </div>

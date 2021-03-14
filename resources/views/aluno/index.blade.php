@@ -12,7 +12,7 @@
                     </div>
                 </div>
             </div>
-            <form method="get" action="{{route('relatorio.gerarRelatorioOperacional')}}">
+            <form method="get" action="{{route('relatorio.gerarRelatorioAluno')}}">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
